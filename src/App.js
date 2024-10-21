@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import RockPaperScissors from './components/RockPaperScissors';
 
-function App() {
+
+export default function App() {
+  const [selectedApp, setSelectedApp] = useState('clock');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="app">
+      <header>
+        <h1>Rock Paper Scissors</h1>
+        <nav>
+          <button onClick={() => setSelectedApp('rockPaperScissors')}>Rock Paper Scissors</button>
+        </nav>
       </header>
+      <main>
+        
+        {selectedApp === 'rockPaperScissors' && <RockPaperScissors />}
+      </main>
     </div>
   );
 }
-
-export default App;
